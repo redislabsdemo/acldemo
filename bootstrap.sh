@@ -21,6 +21,7 @@ sudo rm -f /usr/share/nginx/html/index.html
 #remove server error message
 sudo rm -f /usr/share/nginx/html/50x.html
 #remove the cloned repository because we only needed one file from it the nginx.conf
+mv ./nginx-hardening/nginx.conf /etc/nginx/
 rm -rf /tmp/nginx-hardening
 #install aws cli tools to obtain public network info in automated fashion
 sudo apt-get install awscli -y
@@ -50,3 +51,4 @@ make
 ./src/redis-server
 
 #TODO Install Website for Demos
+

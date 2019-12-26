@@ -10,7 +10,7 @@ def home():
     if not session.get('logged_in'):
         return render_template('login.html')
     else:
-        return "Hello Boss!"
+        return "Hello I think you are already logged in!"
 
 
 @app.route('/login', methods=['POST'])

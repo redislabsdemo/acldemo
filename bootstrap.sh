@@ -51,4 +51,10 @@ make
 ./src/redis-server
 
 #TODO Install Website for Demos
+git clone https://github.com/redislabsdemo/acldemo.git
+mv acldemo/index.html /usr/share/nginx/html/index.html
+mv acldemo/redis-logo.png /usr/share/nginx/html/
+mkdir /usr/share/nginx/html/static
+mv acldemo/static/style.css /usr/share/nginx/html/static
+
 

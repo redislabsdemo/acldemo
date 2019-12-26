@@ -13,16 +13,15 @@ sudo apt-get update -y
 #install nginx (currently at 16.1)
 sudo apt-get install nginx -y
 #clone my repo in order to grab the nginx.conf file inside.
-git clone https://github.com/IAmATeaPot418/nginx-hardening.git
+git clone https://github.com/redislabsdemo/acldemo.git
 #remove existing nginx.conf file
 sudo rm -f /etc/nginx/nginx.conf
 #remove index.html
 sudo rm -f /usr/share/nginx/html/index.html
 #remove server error message
 sudo rm -f /usr/share/nginx/html/50x.html
-#remove the cloned repository because we only needed one file from it the nginx.conf
-mv ./nginx-hardening/nginx.conf /etc/nginx/
-rm -rf /tmp/nginx-hardening
+#Move nginx.conf file to correct location
+mv ./acldemo/nginx.conf /etc/nginx/
 #install aws cli tools to obtain public network info in automated fashion
 sudo apt-get install awscli -y
 #use aws cli tools to get public ip address
@@ -56,5 +55,3 @@ mv acldemo/index.html /usr/share/nginx/html/index.html
 mv acldemo/redis-logo.png /usr/share/nginx/html/
 mkdir /usr/share/nginx/html/static
 mv acldemo/static/style.css /usr/share/nginx/html/static
-
-

@@ -2,7 +2,7 @@
 
 import redis, bcrypt
 
-r = redis.Redis(host='52.41.87.175', port=6379, db=0)
+r = redis.Redis(host='x.x.x.x', port=6379, db=0)
 
 def check_existing_password(username = None , password = None):
     utf8password = password.encode('utf8')

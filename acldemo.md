@@ -15,7 +15,7 @@ cd ./redis
 make
 ./src/redis-server
 git clone https://github.com/redislabsdemo/acldemo.git
-cd ./enablement-rs-security/
+cd ./acldemo
 chmod +x ./loaddata.sh
 ./loaddata.sh
 ```

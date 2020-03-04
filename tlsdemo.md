@@ -54,7 +54,7 @@ redis-cli -h "inserthostname"
 
 
 
-### Demonstrate how to change TLS configuration in Redis.conf by ensure the following variables are set
+## Demonstrate how to change TLS configuration in Redis.conf by ensure the following variables are set
 
 - tls-prefer-server-ciphers yes #Ensures that server ciphers are enforced and client is not able to downgrade.
 
@@ -65,5 +65,25 @@ The above configuration leverages the mozilla moderate for TLS 1.2 found at http
 - tls-ciphersuites TLS_CHACHA20_POLY1305_SHA256 #For TLS 1.3 only
 
 - tls-ciphersuites "TLSv1.2 TLSv1.3"
+
+## Best Practice Configuration (Pending Performance Testing & Support for OpenSSL 1.1.1 from clients)
+
+
+```bash
+tls-protocols TLSv1.3
+tls-ciphersuites TLS_CHACHA20_POLY1305_SHA256
+port 0 #This may be changed
+tls-port 6379 #This may be changed and is frequently a best practice to.
+tls-cert-file redis.crt
+tls-key-file redis.key
+tls-ca-cert-file ca.crt
+tls-ca-cert-dir /etc/ssl/certs
+tls-auth-clients no #Redis turns on client authentication by default. Setting this to no ENABLES and does not DISABLE Client Authentication. 
+tls-replication yes 
+tls-cluster yes #Only Applicable in Cluster Mode
+tls-prefer-server-ciphers yes
+```
+
+
 
 

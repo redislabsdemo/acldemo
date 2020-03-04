@@ -6,7 +6,7 @@ r = redis.Redis(host='x.x.x.x', port=6379, db=0)
 
 def check_existing_password(username = None , password = None):
     utf8password = password.encode('utf8')
-    stored_password = r.get("secret:" + username + ":password")
+    stored_password = r.get("secret:" + username)
     compare_password = bcrypt.hashpw(utf8password, stored_password)
     try:
         if bcrypt.checkpw(utf8password, stored_password) == True:
@@ -21,7 +21,7 @@ def add_new_user(username = None , password = None):
     utf8password = password.encode('utf8')
     hashed_password = bcrypt.hashpw(utf8password, usersalt)
     try:
-        r.set("secret:" + username + ":password", hashed_password)
+        r.set("secret:" + username, hashed_password)
         print('The user ' + username + " has been added")
     except:  #Ignore obvious pep8 issues
         print("An error occured, please try again.")

@@ -27,7 +27,7 @@ make BUILD_TLS=yes
 
 ```bash
 #create key without password
-openssl genrsa -out server.key 4098
+openssl genrsa -out redis.key 4098
 #create csr
 openssl req -new -key redis.key -out server.csr
 #create certificate
@@ -39,7 +39,7 @@ mv redis.crt ./redis-6.0-rc1 ; mv redis.key ./redis-6.0-rc1 ; mv ca.crt ./redis-
 #Move to Redis Directory
 cd ./redis-6.0-rc1
 #Start Redis Server
-/src/redis-server redis.conf
+./src/redis-server redis.conf
 #Connect to Redis Server on the Server
 ./src/redis-cli --tls --cert ./redis.crt --key ./redis.key --cacert ./ca.crt
 #Disable Protected Mode

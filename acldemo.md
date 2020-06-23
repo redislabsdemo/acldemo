@@ -102,7 +102,7 @@ hget secret:users:16 ccn
 However, we can not access the orders object because it has the public label, which serviceacct does not have access to.
 
 ```shell
-hget public:order:1 
+hget public:order:1 item
 ```
 
 We would have to use serviceacct3 or user1 in order to access the order details.
